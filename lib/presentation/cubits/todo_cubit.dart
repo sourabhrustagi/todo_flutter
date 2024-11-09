@@ -1,11 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_flutter/domain/entities/todo.dart';
 import 'package:todo_flutter/domain/usecases/add_todo.dart';
 import 'package:todo_flutter/domain/usecases/delete_todo.dart';
 import 'package:todo_flutter/domain/usecases/fetch_todos.dart';
 import 'package:todo_flutter/domain/usecases/toggle_todo_completion.dart';
 import 'package:todo_flutter/presentation/cubits/todo_state.dart';
-
-import '../../domain/entities/todo.dart';
 
 class TodoCubit extends Cubit<TodoState> {
   final AddTodo addTodo;
