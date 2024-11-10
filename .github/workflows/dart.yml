@@ -43,6 +43,14 @@ jobs:
         name: release-apk
         path: build/app/outputs/flutter-apk/app-release.apk
 
+    - name: Upload to Firebase App Distribution
+      uses: wzieba/Firebase-Distribution-Github-Action@v1
+      with:
+        appId: ${{ secrets.FIREBASE_APP_ID }}
+        token: ${{ secrets.FIREBASE_TOKEN }}
+        groups: testers
+        file: build/app/outputs/flutter-apk/app-release.apk
+
     - name: Send Slack notification
       if: always()
       uses: slackapi/slack-github-action@v1.23.0
