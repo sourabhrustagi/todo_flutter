@@ -22,4 +22,21 @@ jobs:
       run: flutter pub run build_runner build --delete-conflicting-outputs
 
     - name: Run tests
-      run: flutter test
+      id: run-tests
+      run: |
+        flutter test > test_output.txt
+        cat test_output.txt
+
+    - name: Send Slack notification
+      if: always()
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: |
+          {
+            "channel": "#todoflutter",
+            "username": "github-actions",
+            "text": "Test run completed for ${{ github.repository }}. Status: ${{ job.status }}\n\nTest Results:\n```${{ steps.run-tests.outputs.test_output }}```",
+            "icon_emoji": ":octocat:"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
