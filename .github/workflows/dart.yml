@@ -26,6 +26,16 @@ jobs:
       run: |
         flutter test > test_output.txt
         cat test_output.txt
+        echo "::set-output name=test_output::$(cat test_output.txt)"
+
+    - name: Build release
+      run: flutter build apk --release
+
+    - name: Upload release build
+      uses: actions/upload-artifact@v2
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
 
     - name: Send Slack notification
       if: always()
