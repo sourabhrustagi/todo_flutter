@@ -19,7 +19,7 @@ void main() {
   });
 
   test('should add a todo item', () async {
-    final todo = Todo(
+    const todo = Todo(
       id: '1',
       title: 'Test Todo',
       isCompleted: false,
@@ -44,12 +44,12 @@ void main() {
 
   test('should fetch all todo items', () async {
     final todos = [
-      Todo(
+      const Todo(
         id: '1',
         title: 'Test Todo 1',
         isCompleted: false,
       ),
-      Todo(
+      const Todo(
         id: '2',
         title: 'Test Todo 2',
         isCompleted: true,

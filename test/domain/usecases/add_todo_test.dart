@@ -18,7 +18,7 @@ void main() {
   });
 
   test('should call addTodoItem on the repository', () async {
-    final todo = Todo(
+    const todo = Todo(
       id: '1',
       title: 'Test Todo',
       isCompleted: false,

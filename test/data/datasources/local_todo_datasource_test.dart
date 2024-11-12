@@ -10,7 +10,7 @@ void main() {
     });
 
     test('should add a todo item', () async {
-      final todo = Todo(
+      const todo = Todo(
         id: '1',
         title: 'Test Todo',
         isCompleted: false,
@@ -23,12 +23,12 @@ void main() {
     });
 
     test('should fetch all todo items', () async {
-      final todo1 = Todo(
+      const todo1 = Todo(
         id: '1',
         title: 'Test todo 1',
         isCompleted: false,
       );
-      final todo2 = Todo(
+      const todo2 = Todo(
         id: '2',
         title: 'Test todo 2',
         isCompleted: true,
@@ -42,7 +42,7 @@ void main() {
     });
 
     test('should delete a todo item', () async {
-      final todo = Todo(
+      const todo = Todo(
         id: '1',
         title: 'Test Todo',
         isCompleted: false,
@@ -56,7 +56,7 @@ void main() {
     });
 
     test('should toggle todo item completion', () async {
-      final todo = Todo(
+      const todo = Todo(
         id: '1',
         title: 'Test Todo',
         isCompleted: false,
